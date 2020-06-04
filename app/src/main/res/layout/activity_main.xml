@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/headLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:textSize="16dp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="多股同列"
+            android:textColor="#CCC" />
+
+
+        <com.caobo.stockdemo.view.CustomizeScorllView
+            android:id="@+id/headScrollView"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="7">
+            <!--
+            beforeDescendants：viewgroup会优先其子类控件而获取到焦点 
+            afterDescendants：viewgroup只有当其子类控件不需要获取焦点时才获取焦点 
+            blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点.
+            -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/headRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+        </com.caobo.stockdemo.view.CustomizeScorllView>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#c2c2c2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contentRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

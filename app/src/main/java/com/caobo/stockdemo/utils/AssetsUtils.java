@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by cb
+ * Created by 码农专栏
  * on 2020-06-04.
  */
 public class AssetsUtils {

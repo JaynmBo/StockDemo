@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#000"
+    android:background="@color/backColor"
     android:orientation="vertical">
 
 
@@ -13,8 +13,8 @@
 
         <TextView
             android:textStyle="bold"
-            android:textColor="#FFF"
-            android:textSize="14dp"
+            android:textColor="@color/textColor"
+            android:textSize="15dp"
             android:id="@+id/stockName"
             android:layout_width="0dp"
             android:layout_height="50dp"
@@ -23,7 +23,7 @@
             android:text="多股同列" />
 
 
-        <com.caobo.stockdemo.view.CustomizeScorllView
+        <com.caobo.stockdemo.view.CustomizeScrollView
             android:id="@+id/stockScrollView"
             android:layout_width="0dp"
             android:layout_height="50dp"
@@ -44,11 +44,11 @@
                     android:layout_height="wrap_content" />
             </RelativeLayout>
 
-        </com.caobo.stockdemo.view.CustomizeScorllView>
+        </com.caobo.stockdemo.view.CustomizeScrollView>
     </LinearLayout>
 
     <View
-        android:background="#C2C2C2"
+        android:background="@color/line"
         android:layout_width="match_parent"
         android:layout_height="1px"/>
 

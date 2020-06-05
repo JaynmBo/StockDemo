@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * Created by cb
+ * Created by 码农专栏
  * on 2020-06-04.
  */
 public class TabAdapter extends RecyclerView.Adapter<TabAdapter.TabViewHolder> {

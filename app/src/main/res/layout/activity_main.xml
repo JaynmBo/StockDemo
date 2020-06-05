@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
+    android:background="@color/backColor"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -15,17 +15,15 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:textSize="16dp"
+        <ImageView
+            android:src="@mipmap/tab"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="2"
-            android:gravity="center"
-            android:text="多股同列"
-            android:textColor="#CCC" />
+            android:gravity="center"/>
 
 
-        <com.caobo.stockdemo.view.CustomizeScorllView
+        <com.caobo.stockdemo.view.CustomizeScrollView
             android:id="@+id/headScrollView"
             android:layout_width="0dp"
             android:layout_height="50dp"
@@ -46,14 +44,14 @@
                     android:layout_height="wrap_content" />
             </RelativeLayout>
 
-        </com.caobo.stockdemo.view.CustomizeScorllView>
+        </com.caobo.stockdemo.view.CustomizeScrollView>
     </LinearLayout>
 
     <View
         android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#c2c2c2" />
+        android:background="@color/line" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contentRecyclerView"

@@ -1,9 +1,8 @@
 package com.caobo.stockdemo.bean;
 
 import java.util.List;
-
 /**
- * Created by cb
+ * Created by 码农专栏
  * on 2020-06-04.
  */
 public class StockBean {

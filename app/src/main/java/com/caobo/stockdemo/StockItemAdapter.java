@@ -7,15 +7,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Random;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * Created by cb
+ * Created by 码农专栏
  * on 2020-06-04.
  */
-public class StockItemAdapter extends RecyclerView.Adapter<StockItemAdapter.TabViewHolder> {
+public class StockItemAdapter extends RecyclerView.Adapter<StockItemAdapter.ItemViewHolder> {
 
     private List<String> detailBeans;
 
@@ -33,15 +34,24 @@ public class StockItemAdapter extends RecyclerView.Adapter<StockItemAdapter.TabV
 
     @NonNull
     @Override
-    public TabViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(mContext).inflate(R.layout.item_tab, parent, false);
-        return new TabViewHolder(view);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_content_detail, parent, false);
+        return new ItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TabViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         holder.mTabView.setText(detailBeans.get(position));
+        // 模拟文本显示颜色
+        int random = new Random().nextInt(3);
+        if (random == 1) {
+            holder.mTabView.setTextColor(mContext.getResources().getColor(R.color.tabTextColor));// 灰色
+        } else if (random == 2) {
+            holder.mTabView.setTextColor(mContext.getResources().getColor(R.color.greenColor));// 绿色
+        } else {
+            holder.mTabView.setTextColor(mContext.getResources().getColor(R.color.redColor));// 红色
+        }
     }
 
     @Override
@@ -49,11 +59,11 @@ public class StockItemAdapter extends RecyclerView.Adapter<StockItemAdapter.TabV
         return detailBeans.size();
     }
 
-    class TabViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends RecyclerView.ViewHolder {
 
         TextView mTabView;
 
-        public TabViewHolder(@NonNull View itemView) {
+        public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             mTabView = itemView.findViewById(R.id.tabView);
         }

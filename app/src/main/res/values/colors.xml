@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#E04644</color>
+    <color name="colorPrimaryDark">#E04644</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="backColor">#18181A</color>
+    <color name="textColor">#D1D1D1</color>
+    <color name="greenColor">#009A01</color>
+    <color name="redColor">#E04644</color>
+    <color name="tabTextColor">#6F6F71</color>
+    <color name="line">#353638</color>
+    <color name="tabTextTitle">#CCA763</color>
 </resources>

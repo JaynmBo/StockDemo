@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/tabTextTitle" />
+            <corners android:topRightRadius="30dp"
+                android:bottomRightRadius="30dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:bottom="3px"
+        android:right="3px"
+        android:top="3px">
+
+        <shape android:shape="rectangle">
+            <solid android:color="#2A2720"/>
+            <corners android:topRightRadius="30dp"
+                android:bottomRightRadius="30dp"/>
+        </shape>
+    </item>
+</layer-list>

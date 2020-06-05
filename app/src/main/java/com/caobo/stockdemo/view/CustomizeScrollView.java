@@ -5,14 +5,14 @@ import android.util.AttributeSet;
 import android.widget.HorizontalScrollView;
 
 /**
- * Created by cb
+ * Created by 码农专栏
  * on 2020-06-04.
  */
-public class CustomizeScorllView extends HorizontalScrollView {
+public class CustomizeScrollView extends HorizontalScrollView {
 
     private OnScrollViewListener viewListener;
 
-    private interface OnScrollViewListener {
+    public interface OnScrollViewListener {
         void onScroll(int l, int t, int oldl, int oldt);
     }
 
@@ -20,15 +20,15 @@ public class CustomizeScorllView extends HorizontalScrollView {
         this.viewListener = viewListener;
     }
 
-    public CustomizeScorllView(Context context) {
+    public CustomizeScrollView(Context context) {
         this(context,null);
     }
 
-    public CustomizeScorllView(Context context, AttributeSet attrs) {
+    public CustomizeScrollView(Context context, AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public CustomizeScorllView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomizeScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

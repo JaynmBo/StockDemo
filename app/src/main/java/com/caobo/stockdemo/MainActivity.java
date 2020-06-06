@@ -2,6 +2,8 @@ package com.caobo.stockdemo;
 
 import android.os.Bundle;
 
+import com.caobo.stockdemo.adapter.StockAdapter;
+import com.caobo.stockdemo.adapter.TabAdapter;
 import com.caobo.stockdemo.bean.StockBean;
 import com.caobo.stockdemo.utils.AssetsUtils;
 import com.caobo.stockdemo.view.CustomizeScrollView;

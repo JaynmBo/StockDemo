@@ -1,4 +1,4 @@
-package com.caobo.stockdemo;
+package com.caobo.stockdemo.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.caobo.stockdemo.R;
 import com.caobo.stockdemo.bean.StockBean;
 import com.caobo.stockdemo.view.CustomizeScrollView;
 
@@ -110,9 +111,9 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView mStockName;
-        CustomizeScrollView mStockScrollView;
-        RecyclerView mStockRecyclerView;
+        public TextView mStockName;
+        public CustomizeScrollView mStockScrollView;
+        public RecyclerView mStockRecyclerView;
 
 
         public ViewHolder(@NonNull View itemView) {

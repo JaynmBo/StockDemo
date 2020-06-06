@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomizeMarqueeView">
+        <attr name="isSingleLine" format="boolean"/>
+        <attr name="marquee_count" format="integer"/>
+        <attr name="marquee_interval" format="integer|reference"/>
+        <attr name="marquee_animDuration" format="integer|reference"/>
+        <attr name="isFlippingLessCount" format="boolean"/>
+    </declare-styleable>
+
+</resources>

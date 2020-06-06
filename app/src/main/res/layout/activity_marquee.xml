@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backColor"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/marqueeBackground"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/button" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#000" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.caobo.stockdemo.view.CustomizeMarqueeView
+                android:id="@+id/marqueeView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/go" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/marqueeBackground"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/button" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#000" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.caobo.stockdemo.view.CustomizeMarqueeView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/go" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/marqueeBackground"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/button" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#000" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.caobo.stockdemo.view.CustomizeMarqueeView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/go" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

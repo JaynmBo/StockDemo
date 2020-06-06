@@ -10,4 +10,6 @@
     <color name="tabTextColor">#6F6F71</color>
     <color name="line">#353638</color>
     <color name="tabTextTitle">#CCA763</color>
+    <color name="marqueeBackground">#28292D</color>
+    <color name="marqueeTextColor">#A5A7A6</color>
 </resources>

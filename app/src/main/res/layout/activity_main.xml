@@ -12,15 +12,27 @@
         android:id="@+id/headLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:src="@mipmap/tab"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="2"
-            android:gravity="center"/>
+            android:gravity="center_vertical">
+
+            <com.caobo.stockdemo.view.CustomizeTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layer_radius"
+                android:paddingLeft="8dp"
+                android:paddingTop="5dp"
+                android:paddingRight="6dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/greenColor" />
+
+        </LinearLayout>
 
 
         <com.caobo.stockdemo.view.CustomizeScrollView

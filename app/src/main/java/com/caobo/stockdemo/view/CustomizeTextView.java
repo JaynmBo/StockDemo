@@ -39,11 +39,11 @@ public class CustomizeTextView extends View {
     /**
      * 三角形尺寸
      */
-    private int triangleSize = 30;
+    private int triangleSize = 18;
     /**
      * 文本和三角形间距
      */
-    private int specSize = 10;
+    private int triangleSpec = 15;
     /**
      * View宽度
      */
@@ -87,6 +87,8 @@ public class CustomizeTextView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        int i = getWidth() / 7 * 2;
         // 宽度测量
         width = setMeasureSize(widthMeasureSpec, 1);
         // 高度测量
@@ -108,7 +110,7 @@ public class CustomizeTextView extends View {
             case MeasureSpec.AT_MOST:
             case MeasureSpec.UNSPECIFIED:
                 if (type == 1) {
-                    measurementSize = rect.width() + getPaddingLeft() + getPaddingRight() + specSize + triangleSize;
+                    measurementSize = rect.width() + getPaddingLeft() + getPaddingRight() + triangleSpec + triangleSize;
                 } else if (type == 2) {
                     measurementSize = rect.height() + getPaddingTop() + getPaddingBottom();
                 }
@@ -125,13 +127,13 @@ public class CustomizeTextView extends View {
         // 绘制文本
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         float distance = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
-        canvas.drawText(tabStr, getPaddingLeft(), height / 2 + distance, paint);
+        canvas.drawText(tabStr, getPaddingLeft() + rect.width() / 2, height / 2 + distance, paint);
 
         //绘制三角形
         Path path = new Path();
-        path.moveTo(rect.width() + specSize + getPaddingLeft(), height / 2 - triangleSize / 2);//三角形左下角位置坐标
-        path.lineTo(rect.width() + specSize + getPaddingLeft(), height / 2 + triangleSize / 2);//三角形右下角位置坐标
-        path.lineTo(rect.width() + specSize + getPaddingLeft() + triangleSize / 2, height / 2);//三角形顶部位置坐标
+        path.moveTo(rect.width() + triangleSpec + getPaddingLeft(), height / 2 - triangleSize / 2);//三角形左下角位置坐标
+        path.lineTo(rect.width() + triangleSpec + getPaddingLeft(), height / 2 + triangleSize / 2);//三角形右下角位置坐标
+        path.lineTo(rect.width() + triangleSpec + getPaddingLeft() + triangleSpec, height / 2);//三角形顶部位置坐标
         path.close();
         canvas.drawPath(path, paint);
     }

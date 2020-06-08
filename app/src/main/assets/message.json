@@ -1,0 +1,62 @@
+[
+  {
+    "time": "09:37",
+    "stockName": "中国核电",
+    "type": "1",
+    "message": "12.5万股"
+  },
+  {
+    "time": "09:38",
+    "stockName": "哈药股份",
+    "type": "2",
+    "message": "30.0万股"
+  },
+  {
+    "time": "09:41",
+    "stockName": "中国铝业",
+    "type": "2",
+    "message": "80.6万股"
+  },
+  {
+    "time": "09:45",
+    "stockName": "银泰黄金",
+    "type": "1",
+    "message": "100万股"
+  },
+  {
+    "time": "09:49",
+    "stockName": "烽火通信",
+    "type": "1",
+    "message": "11.5万股"
+  },
+  {
+    "time": "09:51",
+    "stockName": "祁连山",
+    "type": "2",
+    "message": "49.0万股"
+  },
+  {
+    "time": "09:52",
+    "stockName": "西安银行",
+    "type": "1",
+    "message": "50.0万股"
+  },
+  {
+    "time": "09:57",
+    "stockName": "亚通股份",
+    "type": "1",
+    "message": "128万股"
+  },
+  {
+    "time": "09:59",
+    "stockName": "凯恩股份",
+    "type": "2",
+    "message": "65.5万股"
+  },
+  {
+    "time": "10:01",
+    "stockName": "五粮液",
+    "type": "1",
+    "message": "30.0万股"
+  }
+]

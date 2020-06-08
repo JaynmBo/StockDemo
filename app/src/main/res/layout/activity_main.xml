@@ -68,6 +68,52 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contentRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/marqueeBackground"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingTop="6dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="6dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/button" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="#000" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.caobo.stockdemo.view.CustomizeMarqueeView
+                android:id="@+id/marqueeView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/go" />
+
+    </LinearLayout>
 
 </LinearLayout>

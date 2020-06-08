@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 
 import com.caobo.stockdemo.R;
-import com.caobo.stockdemo.adapter.MarqueeViewBaseAdapter;
+import com.caobo.stockdemo.adapter.MarquessViewAdapter;
 
 import androidx.annotation.NonNull;
 
@@ -19,7 +19,7 @@ import androidx.annotation.NonNull;
  * Created by 码农专栏
  * on 2020-06-06.
  */
-public class CustomizeMarqueeView extends ViewFlipper implements MarqueeViewBaseAdapter.OnDataChangedListener {
+public class CustomizeMarqueeView extends ViewFlipper implements MarquessViewAdapter.OnDataChangedListener {
     /**
      * 是否单行显示
      */
@@ -33,15 +33,11 @@ public class CustomizeMarqueeView extends ViewFlipper implements MarqueeViewBase
      */
     private int animDuration = 1000;
     /**
-     * 一次性显示多少个
+     * 一次性显示item数目
      */
     private int itemCount = 1;
-    /**
-     * 当数据源少于一次性显示数目是否自动轮播标记
-     */
-    private boolean isFlippingLessCount = true;
 
-    private MarqueeViewBaseAdapter mMarqueeViewBaseAdapter;
+    private MarquessViewAdapter mMarqueeViewBaseAdapter;
 
 
     public CustomizeMarqueeView(Context context) {
@@ -52,7 +48,6 @@ public class CustomizeMarqueeView extends ViewFlipper implements MarqueeViewBase
         super(context, attrs);
         initView(context);
     }
-
 
     private void initView(Context context) {
         // 动画
@@ -71,24 +66,34 @@ public class CustomizeMarqueeView extends ViewFlipper implements MarqueeViewBase
         setMeasureAllChildren(false);
     }
 
-
     private void setData() {
         removeAllViews();
         int currentIndex = 0;
-        int loopconunt = mMarqueeViewBaseAdapter.getItemCount() % itemCount == 0 ? mMarqueeViewBaseAdapter.getItemCount() / itemCount : mMarqueeViewBaseAdapter.getItemCount() / itemCount + 1;
-        for (int i = 0; i < loopconunt; i++) {
-//            if (isSingleLine) {
-//                View view = mMarqueeViewBaseAdapter.onCreateView(this);
-//                if (currentIndex < mMarqueeViewBaseAdapter.getItemCount()) {
-//                    mMarqueeViewBaseAdapter.onBindView(view, currentIndex);
-//                }
-//                currentIndex = currentIndex + 1;
-//                addView(view);
-//            } else {
+        // 计算数据展示完毕需要几页，根据总条目%每页条目计算得出
+        int loopCount = mMarqueeViewBaseAdapter.getItemCount() % itemCount == 0 ?
+                mMarqueeViewBaseAdapter.getItemCount() / itemCount :
+                mMarqueeViewBaseAdapter.getItemCount() / itemCount + 1;
+        // 遍历动态添加每页的View
+        for (int i = 0; i < loopCount; i++) {
+            // 每页单条展示
+            if (isSingleLine) {
                 LinearLayout parentView = new LinearLayout(getContext());
                 parentView.setOrientation(LinearLayout.VERTICAL);
                 parentView.setGravity(Gravity.CENTER);
                 parentView.removeAllViews();
+                View view = mMarqueeViewBaseAdapter.onCreateView(this);
+                parentView.addView(view);
+                if (currentIndex < mMarqueeViewBaseAdapter.getItemCount()) {// 绑定View
+                    mMarqueeViewBaseAdapter.onBindView(view, currentIndex);
+                }
+                currentIndex = currentIndex + 1;
+                addView(parentView);
+            } else {
+                LinearLayout parentView = new LinearLayout(getContext());
+                parentView.setOrientation(LinearLayout.VERTICAL);
+                parentView.setGravity(Gravity.CENTER);
+                parentView.removeAllViews();
+                // 每页显示多少条，就遍历添加几个子View
                 for (int j = 0; j < itemCount; j++) {
                     View view = mMarqueeViewBaseAdapter.onCreateView(this);
                     parentView.addView(view);
@@ -98,13 +103,9 @@ public class CustomizeMarqueeView extends ViewFlipper implements MarqueeViewBase
                     }
                 }
                 addView(parentView);
-//            }
-        }
-        if (isFlippingLessCount || itemCount >= mMarqueeViewBaseAdapter.getItemCount()) {
-            startFlipping();
+            }
         }
     }
-
 
 
     private int getRealPosition(int index, int currentIndex) {
@@ -116,11 +117,10 @@ public class CustomizeMarqueeView extends ViewFlipper implements MarqueeViewBase
     }
 
 
-    public void setAdapter(MarqueeViewBaseAdapter adapter) {
+    public void setAdapter(MarquessViewAdapter adapter) {
         if (adapter != null) {
             this.mMarqueeViewBaseAdapter = adapter;
             mMarqueeViewBaseAdapter.setOnDataChangedListener(this);
-            setData();
         }
     }
 
@@ -133,9 +133,6 @@ public class CustomizeMarqueeView extends ViewFlipper implements MarqueeViewBase
         isSingleLine = singleLine;
     }
 
-    public void setFlippingLessCount(boolean flippingLessCount) {
-        isFlippingLessCount = flippingLessCount;
-    }
 
     @Override
     public void onChanged() {

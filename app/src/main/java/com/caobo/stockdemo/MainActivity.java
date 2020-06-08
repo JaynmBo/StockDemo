@@ -2,10 +2,13 @@ package com.caobo.stockdemo;
 
 import android.os.Bundle;
 
+import com.caobo.stockdemo.adapter.MarquessViewAdapter;
 import com.caobo.stockdemo.adapter.StockAdapter;
 import com.caobo.stockdemo.adapter.TabAdapter;
+import com.caobo.stockdemo.bean.MessageBean;
 import com.caobo.stockdemo.bean.StockBean;
 import com.caobo.stockdemo.utils.AssetsUtils;
+import com.caobo.stockdemo.view.CustomizeMarqueeView;
 import com.caobo.stockdemo.view.CustomizeScrollView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -37,6 +40,14 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.OnTa
      */
     private RecyclerView mContentRecyclerView;
     /**
+     * 跑马灯View
+     */
+    private CustomizeMarqueeView mMarqueeView;
+    /**
+     * 跑马灯Adapter
+     */
+    private MarquessViewAdapter marquessViewAdapter;
+    /**
      * Tab栏Adapter
      */
     private TabAdapter mTabAdapter;
@@ -44,16 +55,18 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.OnTa
      * 列表Adapter
      */
     private StockAdapter mStockAdapter;
-
     /**
      * Tab栏标题
      */
     String values[] = {"最新", "涨幅", "涨跌", "换手", "成交额", "量比", "振幅"};
-
     /**
-     * 数据集合
+     * RecyclerView数据集合
      */
     private List<StockBean> stockBeans = new ArrayList<>();
+    /**
+     * 跑马灯数据集合
+     */
+    private List<MessageBean> messageBeans = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.OnTa
         mHeadRecyclerView = findViewById(R.id.headRecyclerView);
         mContentRecyclerView = findViewById(R.id.contentRecyclerView);
         headHorizontalScrollView = findViewById(R.id.headScrollView);
+        mMarqueeView = findViewById(R.id.marqueeView);
 
         // TODO:Tab栏RecycleView
         // 设置RecyclerView水平显示
@@ -81,8 +95,26 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.OnTa
         mStockAdapter.setOnTabScrollViewListener(this);
         initStockData();
 
-        initListener();
+        // TODO：跑马灯
+        marquessViewAdapter = new MarquessViewAdapter(this);
+        mMarqueeView.setItemCount(2);
+        mMarqueeView.setSingleLine(false);
+        mMarqueeView.setAdapter(marquessViewAdapter);
+        marquessViewAdapter.setMessageBeans(messageBeans);
+        initMarquessData();
 
+        initListener();
+    }
+
+    /**
+     * 初始化跑马灯数据
+     */
+    private void initMarquessData() {
+        List<MessageBean> list = new Gson().fromJson(AssetsUtils.getJson("message.json", getApplication()),
+                new TypeToken<List<MessageBean>>() {
+                }.getType());
+        messageBeans.addAll(list);
+        marquessViewAdapter.notifyDataChanged();
     }
 
     private void initListener() {
@@ -121,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.OnTa
     void initTabData() {
         mTabAdapter.setTabData(Arrays.asList(values));
     }
+
     /**
      * 初始化列表数据
      */

@@ -2,12 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/backColor"
-    android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/marqueeBackground"
@@ -25,7 +24,7 @@
         <View
             android:layout_width="1px"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp"
             android:background="#000" />
@@ -71,7 +70,7 @@
         <View
             android:layout_width="1px"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp"
             android:background="#000" />
@@ -83,6 +82,7 @@
             android:layout_weight="1">
 
             <com.caobo.stockdemo.view.CustomizeMarqueeView
+                android:id="@+id/marqueeView2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -116,7 +116,7 @@
         <View
             android:layout_width="1px"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp"
             android:background="#000" />
@@ -128,6 +128,7 @@
             android:layout_weight="1">
 
             <com.caobo.stockdemo.view.CustomizeMarqueeView
+                android:id="@+id/marqueeView3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

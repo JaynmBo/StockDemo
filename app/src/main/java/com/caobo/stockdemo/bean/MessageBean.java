@@ -15,7 +15,6 @@ public class MessageBean {
 
     private String message;
 
-
     public String getTime() {
         return time;
     }
